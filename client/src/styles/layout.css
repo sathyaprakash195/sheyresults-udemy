@@ -1,0 +1,37 @@
+.spinner-parent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.653);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+.spinner {
+  height: 200px;
+  width: 200px;
+}
+
+
+.layout{
+  padding: 15px;
+}
+
+.header{
+  background-color: var(--primary);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.content{
+  margin-top: 15px;
+  padding: 10px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.653);
+  border: 1px solid gray;
+  border-radius: 5px;
+  height: 85vh;
+  overflow-y: scroll;
+}
