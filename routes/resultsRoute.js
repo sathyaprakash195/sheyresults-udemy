@@ -48,7 +48,7 @@ router.post("/get-all-results", async (req, res) => {
 });
 
 // get result by id
-router.post("/get-result/:resultId", authMiddleware, async (req, res) => {
+router.post("/get-result/:resultId", async (req, res) => {
   try {
     const result = await Result.findById(req.params.resultId);
     res.status(200).send({
