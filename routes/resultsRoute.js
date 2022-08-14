@@ -117,7 +117,7 @@ router.post("/save-student-result", authMiddleware, async (req, res) => {
 
 // get student result by id
 
-router.post("/get-student-result", authMiddleware, async (req, res) => {
+router.post("/get-student-result", async (req, res) => {
   try {
     const student = await Student.findOne({
       rollNo: req.body.rollNo,

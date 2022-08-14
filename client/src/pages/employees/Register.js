@@ -28,6 +28,8 @@ function Register() {
   return (
     <div className="primary d-flex align-items-center justify-content-center h-screen">
       <Form layout="vertical w-400 white p-4" onFinish={onFinish}>
+        <h1 className="text-medium"><b>SHEY RESULTS</b></h1>
+        <hr />
         <h1 className="text-medium">Employee - Registration</h1>
         <hr />
         <Form.Item name="name" label="Name">
