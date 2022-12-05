@@ -15,7 +15,7 @@ function EmployeeHome() {
             }}
           >
             <img
-              src="https://cdn-icons-png.flaticon.com/512/3135/3135810.png"
+              src="https://cdn-icons-png.flaticon.com/128/3584/3584382.png"
               alt=""
               height={50}
               width={50}
@@ -31,7 +31,7 @@ function EmployeeHome() {
             }}
           >
             <img
-              src="https://cdn-icons.flaticon.com/png/512/2065/premium/2065169.png?token=exp=1660472205~hmac=65be9fe291719a7d5be1b80c75fc0989"
+              src="https://cdn-icons-png.flaticon.com/128/1162/1162251.png"
               alt=""
               height={50}
               width={50}

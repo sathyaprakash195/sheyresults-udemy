@@ -85,7 +85,7 @@ router.post("/save-student-result", authMiddleware, async (req, res) => {
         if (result.resultId === req.body.resultId) {
           return {
             ...result,
-            obtainedMarks: req.body.obtainedMarks,
+            obtainedCGPA: req.body.obtainedCGPA,
             verdict: req.body.verdict,
           };
         }
@@ -143,8 +143,7 @@ router.post("/get-student-result", async (req, res) => {
       data: {
         ...resultExists,
         studentId: student._id,
-        firstName: student.firstName,
-        lastName: student.lastName,
+        fullName: student.fullName,
       },
     });
   } catch (error) {

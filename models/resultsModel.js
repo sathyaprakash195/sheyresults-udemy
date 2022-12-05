@@ -17,7 +17,7 @@ const resultSchema = new mongoose.Schema(
       type: Array,
       required: true,
     },
-    class: {
+    semester: {
       type: String,
       required: true,
     },

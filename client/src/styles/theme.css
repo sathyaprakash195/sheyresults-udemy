@@ -1,8 +1,8 @@
 
 
 :root {
-  --primary: #045842;
-  --secondary: #ec5909;
+  --primary: #ec4d4d86;
+  --secondary: #5290edf7;
 }
 
 *{
@@ -108,7 +108,7 @@ button{
     border: none !important;
 }
 a{
-    color: #000 !important;
+    color: rgb(87, 174, 206) !important;
 }
 h1{
   margin-bottom: 0 !important;

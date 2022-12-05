@@ -1,11 +1,11 @@
 {
-  "name": "sheyresults",
+  "name": "stanleyresults",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "engines" : {
-    "node" : "15.7.0",
-    "npm" : "7.4.3"
+    "node" : "18.12.1",
+    "npm" : "8.19.2"
   },
   "scripts": {
     "client-install": "npm install --prefix client",

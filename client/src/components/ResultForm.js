@@ -49,7 +49,7 @@ function ResultForm() {
             </Form.Item>
           </Col>
           <Col span={8}>
-            <Form.Item label="Class" name="class">
+            <Form.Item label="Semester" name="semester">
               <input type="number" />
             </Form.Item>
           </Col>
@@ -73,17 +73,17 @@ function ResultForm() {
                   </Form.Item>
                   <Form.Item
                     {...restField}
-                    name={[name, "totalMarks"]}
+                    name={[name, "totalCGPA"]}
                     rules={[{ required: true, message: "Required" }]}
                   >
-                    <input placeholder="Total Marks" />
+                    <input placeholder="Total CGPA" />
                   </Form.Item>
                   <Form.Item
                     {...restField}
-                    name={[name, "passMarks"]}
+                    name={[name, "passCGPA"]}
                     rules={[{ required: true, message: "Required" }]}
                   >
-                    <input placeholder="Pass Marks" />
+                    <input placeholder="Pass CGPA" />
                   </Form.Item>
                   <i
                     className="ri-delete-bin-line"

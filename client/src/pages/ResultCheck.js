@@ -68,24 +68,24 @@ function ResultCheck() {
   }, []);
 
   const getPercenatge = () => {
-    let totalMarks = 0;
-    let obtainedMarks = 0;
+    let totalCGPA = 0;
+    let obtainedCGPA = 0;
     result.subjects.forEach((subject) => {
-      totalMarks += Number(subject.totalMarks);
+      totalCGPA += Number(subject.totalCGPA);
     });
-    console.log(totalMarks);
-    Object.keys(studentResult.obtainedMarks).forEach((key) => {
-      obtainedMarks += Number(studentResult.obtainedMarks[key]);
+    console.log(totalCGPA);
+    Object.keys(studentResult.obtainedCGPA).forEach((key) => {
+      obtainedCGPA += Number(studentResult.obtainedCGPA[key]);
     });
-    console.log(obtainedMarks);
-    return (obtainedMarks / totalMarks) * 100;
+    console.log(obtainedCGPA);
+    return (obtainedCGPA / totalCGPA) * 100;
   };
   return (
     <div className="p-5">
       <div className="header d-flex justify-content-between align-items-center">
         <h1 className="text-white">
           {" "}
-          <b className="secondary-text">SHEY</b> RESULTS{" "}
+          <b className="secondary-text">STANLEY</b> RESULTS{" "}
         </h1>
         <div>
           <h1
@@ -102,7 +102,7 @@ function ResultCheck() {
       {result && (
         <div className="mt-3 p-3 card">
           <h1 className="text-small">Examination : {result.examination}</h1>
-          <h1 className="text-small">Class : {result.class}</h1>
+          <h1 className="text-small">Semester : {result.semester}</h1>
         </div>
       )}
       <hr />
@@ -130,7 +130,7 @@ function ResultCheck() {
           <div>
             <h1 className="text-medium ">
               <b>
-                Name : {studentResult.firstName} {studentResult.lastName}
+                Name : {studentResult.fullName}
               </b>
             </h1>
           </div>
@@ -139,16 +139,16 @@ function ResultCheck() {
             <thead>
               <tr>
                 <th>Subject</th>
-                <th>Total Marks</th>
-                <th>Obtained Marks</th>
+                <th>Total CGPA</th>
+                <th>Obtained CGPA</th>
               </tr>
             </thead>
             <tbody>
               {result.subjects.map((subject, index) => (
                 <tr>
                   <td>{subject.name}</td>
-                  <td>{subject.totalMarks}</td>
-                  <td>{studentResult.obtainedMarks[subject?.name] || 0}</td>
+                  <td>{subject.totalCGPA}</td>
+                  <td>{studentResult.obtainedCGPA[subject?.name] || 0}</td>
                 </tr>
               ))}
             </tbody>

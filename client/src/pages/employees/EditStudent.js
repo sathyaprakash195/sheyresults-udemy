@@ -46,7 +46,7 @@ function EditStudent() {
     <div>
       <PageTitle title="Edit Student" />
       <img
-        src="https://cdn-icons-png.flaticon.com/512/2444/2444472.png"
+        src="https://cdn-icons-png.flaticon.com/512/4222/4222553.png"
         alt=""
         height={100}
         width={100}

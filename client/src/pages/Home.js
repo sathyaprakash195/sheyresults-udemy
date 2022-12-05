@@ -46,7 +46,7 @@ function Home() {
       <div className="header d-flex justify-content-between align-items-center py-3">
         <h1 className="text-white">
           {" "}
-          <b className="secondary-text">SHEY</b> RESULTS{" "}
+          <b className="secondary-text">STANLEY </b> RESULTS{" "}
         </h1>
         <div>
           <h1
@@ -63,7 +63,7 @@ function Home() {
       {results.length > 0 ? (
         <Row gutter={[20, 20]}>
           <Col span={24}>
-            <h1 className="text-large my-3">Welcome to SHEY RESULTS </h1>
+            <h1 className="text-large my-3">Welcome to STANLEY RESULTS </h1>
             <h1 className="text-medium my-3">
               Select Your Examination From Below..{" "}
             </h1>
@@ -81,7 +81,7 @@ function Home() {
                 >
                   <h1 className="text-medium">{result.examination}</h1>
                   <hr />
-                  <h1 className="text-small">Class : {result.class}</h1>
+                  <h1 className="text-small">Semester : {result.semester}</h1>
                 </div>
               </Col>
             );

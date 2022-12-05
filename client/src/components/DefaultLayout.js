@@ -10,7 +10,7 @@ function DefaultLayout(props) {
       <div className="header d-flex justify-content-between align-items-center">
         <h1 className="text-white">
           {" "}
-          <b className="secondary-text">SHEY</b> RESULTS{" "}
+          <b className="secondary-text">STANLEY</b> RESULTS{" "}
         </h1>
         <div>
           <h1 className="text-white text-small">{employee?.name}</h1>

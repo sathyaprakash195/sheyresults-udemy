@@ -10,7 +10,7 @@ import { HideLoading, ShowLoading } from "../../redux/alerts";
 import { useParams } from "react-router-dom";
 
 function ResultInfo() {
-  const [obtainedMarks, setObtainedMarks] = React.useState(null);
+  const [obtainedCGPA, setObtainedCGPA] = React.useState(null);
   const [selectedStudent, setSelectedStudent] = React.useState(null);
   const [showStudentsModal, setShowStudentsModal] = React.useState(false);
   const [students, setStudents] = React.useState([]);
@@ -33,11 +33,11 @@ function ResultInfo() {
       dispatch(HideLoading());
       if (response.data.success) {
         setResult(response.data.data);
-        const tempObtainedMarks = {};
+        const tempObtainedCGPA = {};
         response.data.data.subjects.forEach((subject) => {
-          tempObtainedMarks[subject.name] = 0;
+          tempObtainedCGPA[subject.name] = 0;
         });
-        setObtainedMarks(tempObtainedMarks);
+        setObtainedCGPA(tempObtainedCGPA);
       } else {
         toast.error(response.data.message);
       }
@@ -53,7 +53,7 @@ function ResultInfo() {
       const response = await axios.post(
         "/api/student/get-all-students",
         {
-          class: result.class,
+          class: result.semester,
         },
         {
           headers: {
@@ -75,13 +75,13 @@ function ResultInfo() {
 
   const saveStudentResult = async (values) => {
     let verdict = "pass";
-    Object.keys(obtainedMarks).forEach((key) => {
+    Object.keys(obtainedCGPA).forEach((key) => {
       const subjectName = key;
-      const marks = obtainedMarks[key];
-      const passMarks = result.subjects.find(
+      const CGPA = obtainedCGPA[key];
+      const passCGPA = result.subjects.find(
         (subject) => subject.name === subjectName
-      ).passMarks;
-      if (Number(marks) < Number(passMarks)) {
+      ).passCGPA;
+      if (Number(CGPA) < Number(passCGPA)) {
         verdict = "fail";
       }
       return;
@@ -94,7 +94,7 @@ function ResultInfo() {
           resultId: params.resultId,
           examination: result.examination,
           studentId: selectedStudent._id,
-          obtainedMarks: obtainedMarks,
+          obtainedCGPA: obtainedCGPA,
           verdict,
         },
         {
@@ -106,7 +106,7 @@ function ResultInfo() {
       dispatch(HideLoading());
       if (response.data.success) {
         toast.success(response.data.message);
-        setObtainedMarks(null);
+        setObtainedCGPA(null);
         setSelectedStudent(null);
         getStudents();
       } else {
@@ -119,9 +119,9 @@ function ResultInfo() {
   };
   const columns = [
     {
-      title: "Class",
-      dataIndex: "class",
-      key: "class",
+      title: "Semester",
+      dataIndex: "semester",
+      key: "semester",
     },
     {
       title: "Roll No",
@@ -129,14 +129,9 @@ function ResultInfo() {
       key: "rollNo",
     },
     {
-      title: "First Name",
-      dataIndex: "firstName",
-      key: "firstName",
-    },
-    {
-      title: "Last Name",
-      dataIndex: "lastName",
-      key: "lastName",
+      title: "Full Name",
+      dataIndex: "fullName",
+      key: "fullName",
     },
   ];
 
@@ -159,7 +154,7 @@ function ResultInfo() {
         <>
           <div className="mt-3">
             <h1 className="text-small">Name : {result.examination}</h1>
-            <h1 className="text-small">Class : {result.class}</h1>
+            <h1 className="text-small">Semester : {result.semester}</h1>
             <h1 className="text-small">Date : {result.date}</h1>
           </div>
           <hr />
@@ -176,17 +171,16 @@ function ResultInfo() {
             <>
               <div className="d-flex justify-content-between align-items-center card flex-row p-2">
                 <h1 className="text-small">
-                  Student Name : {selectedStudent?.firstName}{" "}
-                  {selectedStudent?.lastName}
+                  Student Name : {selectedStudent?.fullName}
                 </h1>
                 <i
                   className="ri-close-line"
                   onClick={() => {
-                    const tempObtainedMarks = {};
+                    const tempObtainedCGPA = {};
                     result.subjects.forEach((subject) => {
-                      tempObtainedMarks[subject.name] = 0;
+                      tempObtainedCGPA[subject.name] = 0;
                     });
-                    setObtainedMarks(tempObtainedMarks);
+                    setObtainedCGPA(tempObtainedCGPA);
                     setSelectedStudent(null);
                   }}
                 ></i>
@@ -196,25 +190,25 @@ function ResultInfo() {
                 <thead>
                   <tr>
                     <th>Subject</th>
-                    <th>Total Marks</th>
-                    <th>Obtained Marks</th>
+                    <th>Total CGPA</th>
+                    <th>Obtained CGPA</th>
                   </tr>
                 </thead>
                 <tbody>
                   {result?.subjects?.map((subject, index) => (
                     <tr>
                       <td>{subject?.name}</td>
-                      <td>{subject?.totalMarks}</td>
+                      <td>{subject?.totalCGPA}</td>
                       <td>
                         <input
                           type="text"
                           className="w-110"
-                          value={obtainedMarks[subject?.name]}
+                          value={obtainedCGPA[subject?.name]}
                           onChange={(e) => {
-                            const tempObtainedMarks = { ...obtainedMarks };
-                            tempObtainedMarks[subject.name] = e.target.value;
-                            console.log(tempObtainedMarks);
-                            setObtainedMarks(tempObtainedMarks);
+                            const tempObtainedCGPA = { ...obtainedCGPA };
+                            tempObtainedCGPA[subject.name] = e.target.value;
+                            console.log(tempObtainedCGPA);
+                            setObtainedCGPA(tempObtainedCGPA);
                           }}
                         />
                       </td>
@@ -252,7 +246,7 @@ function ResultInfo() {
                   (result) => result.resultId === params.resultId
                 );
                 if (resultExists) {
-                  setObtainedMarks(resultExists.obtainedMarks);
+                  setObtainedCGPA(resultExists.obtainedCGPA);
                 }
                 setShowStudentsModal(false);
               },
