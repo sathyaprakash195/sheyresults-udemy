@@ -85,6 +85,13 @@ function ResultForm() {
                   >
                     <input placeholder="Pass CGPA" />
                   </Form.Item>
+                  <Form.Item
+                    {...restField}
+                    name={[name, "credits"]}
+                    rules={[{ required: true, message: "Required" }]}
+                  >
+                    <input placeholder="Credits" />
+                  </Form.Item>
                   <i
                     className="ri-delete-bin-line"
                     onClick={() => remove(name)}

@@ -46,7 +46,7 @@ function Home() {
       <div className="header d-flex justify-content-between align-items-center py-3">
         <h1 className="text-white">
           {" "}
-          <b className="secondary-text">STANLEY </b> RESULTS{" "}
+          <b className="secondary-text"> STANLEY </b> RESULTS{" "}
         </h1>
         <div>
           <h1

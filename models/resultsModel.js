@@ -18,7 +18,7 @@ const resultSchema = new mongoose.Schema(
       required: true,
     },
     semester: {
-      type: String,
+      type: Number,
       required: true,
     },
   },

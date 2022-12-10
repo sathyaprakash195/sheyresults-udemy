@@ -85,7 +85,7 @@ function ResultCheck() {
       <div className="header d-flex justify-content-between align-items-center">
         <h1 className="text-white">
           {" "}
-          <b className="secondary-text">STANLEY</b> RESULTS{" "}
+          <b className="secondary-text">IT</b> RESULTS{" "}
         </h1>
         <div>
           <h1
@@ -135,19 +135,19 @@ function ResultCheck() {
             </h1>
           </div>
           <hr />
-          <table className="table table-bordered w-50">
+          <table className="table table-striped w-50">
             <thead>
               <tr>
                 <th>Subject</th>
-                <th>Total CGPA</th>
-                <th>Obtained CGPA</th>
+                <th>Credits</th>
+                <th>Grade point</th>
               </tr>
             </thead>
             <tbody>
               {result.subjects.map((subject, index) => (
                 <tr>
                   <td>{subject.name}</td>
-                  <td>{subject.totalCGPA}</td>
+                  <td>{subject.credits}</td>
                   <td>{studentResult.obtainedCGPA[subject?.name] || 0}</td>
                 </tr>
               ))}

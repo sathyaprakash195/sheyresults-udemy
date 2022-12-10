@@ -190,8 +190,9 @@ function ResultInfo() {
                 <thead>
                   <tr>
                     <th>Subject</th>
-                    <th>Total CGPA</th>
-                    <th>Obtained CGPA</th>
+                    <th>Total GPA</th>
+                    <th>Obtained GPA</th>
+                    <th>Credits</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -212,6 +213,7 @@ function ResultInfo() {
                           }}
                         />
                       </td>
+                      <td>{subject?.credits}</td>
                     </tr>
                   ))}
                 </tbody>
