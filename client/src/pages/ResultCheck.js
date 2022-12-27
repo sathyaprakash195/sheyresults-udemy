@@ -66,26 +66,12 @@ function ResultCheck() {
       getResult();
     }
   }, []);
-
-  const getPercenatge = () => {
-    let totalCGPA = 0;
-    let obtainedCGPA = 0;
-    result.subjects.forEach((subject) => {
-      totalCGPA += Number(subject.totalCGPA);
-    });
-    console.log(totalCGPA);
-    Object.keys(studentResult.obtainedCGPA).forEach((key) => {
-      obtainedCGPA += Number(studentResult.obtainedCGPA[key]);
-    });
-    console.log(obtainedCGPA);
-    return (obtainedCGPA / totalCGPA) * 100;
-  };
   return (
     <div className="p-5">
       <div className="header d-flex justify-content-between align-items-center">
         <h1 className="text-white">
           {" "}
-          <b className="secondary-text">STANLEY</b> RESULTS{" "}
+          <b className="secondary-text">IT</b> RESULTS{" "}
         </h1>
         <div>
           <h1
@@ -105,10 +91,10 @@ function ResultCheck() {
           <h1 className="text-small">Semester : {result.semester}</h1>
         </div>
       )}
-      <hr />
+      <hr />      
       <div className="d-flex gap-3 p-3 card flex-row my-3">
         <input
-          type="text"
+          type="number"
           placeholder="Roll No"
           className="w-300"
           value={rollNo}
@@ -162,8 +148,7 @@ function ResultCheck() {
             className="p-3 w-50"
           >
             <h1 className="text-white text-center text-medium">
-              Percentage : {getPercenatge().toFixed(2)} % , Verdict :{" "}
-              {studentResult?.verdict?.toUpperCase()}
+              SGPA:{" "} {studentResult?.SGPA?.toUpperCase()}, Verdict :{" "}{studentResult?.verdict?.toUpperCase()}
             </h1>
           </div>
         </div>

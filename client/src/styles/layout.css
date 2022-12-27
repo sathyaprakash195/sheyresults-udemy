@@ -20,6 +20,10 @@
   padding: 15px;
 }
 
+.layout2{
+  padding: 100px;
+}
+
 .header{
   background-color: var(--primary);
   padding: 10px;

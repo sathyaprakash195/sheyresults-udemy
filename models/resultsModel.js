@@ -17,6 +17,10 @@ const resultSchema = new mongoose.Schema(
       type: Array,
       required: true,
     },
+    /*subjects1: {
+      type: Array,
+      required: true,
+    }, */
     semester: {
       type: Number,
       required: true,

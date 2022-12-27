@@ -63,6 +63,14 @@ function ResultInfo() {
           tempObtainedCGPA[subject.name] = 0;
         });
         setObtainedCGPA(tempObtainedCGPA);
+      }
+      if (response.data.success) {
+        setResult(response.data.data);
+        const tempObtainedCGPA = {};
+        response.data.data.subjects1.forEach((subject) => {
+          tempObtainedCGPA[subject.name] = 0;
+        });
+        setObtainedCGPA(tempObtainedCGPA);
       } else {
         toast.error(response.data.message);
       }
@@ -104,6 +112,50 @@ function ResultInfo() {
       const subjectName = key;
       const CGPA = obtainedCGPA[key];
       const passCGPA = result.subjects.find(
+        (subject) => subject.name === subjectName
+      ).passCGPA;
+      if (Number(CGPA) < Number(passCGPA)) {
+        verdict = "fail";
+      }
+      return;
+    });
+    try {
+      dispatch(ShowLoading());
+      const response = await axios.post(
+        "/api/results/save-student-result",
+        {
+          resultId: params.resultId,
+          examination: result.examination,
+          studentId: selectedStudent._id,
+          obtainedCGPA: obtainedCGPA,
+          verdict,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
+      dispatch(HideLoading());
+      if (response.data.success) {
+        toast.success(response.data.message);
+        setObtainedCGPA(null);
+        setSelectedStudent(null);
+        getStudents();
+      } else {
+        toast.error(response.data.message);
+      }
+    } catch (error) {
+      dispatch(HideLoading());
+      toast.error(error.message);
+    }
+  };
+  const saveStudentResult1 = async (values) => {
+    let verdict = "pass";
+    Object.keys(obtainedCGPA).forEach((key) => {
+      const subjectName = key;
+      const CGPA = obtainedCGPA[key];
+      const passCGPA = result.subjects1.find(
         (subject) => subject.name === subjectName
       ).passCGPA;
       if (Number(CGPA) < Number(passCGPA)) {
@@ -205,6 +257,9 @@ function ResultInfo() {
                     result.subjects.forEach((subject) => {
                       tempObtainedCGPA[subject.name] = 0;
                     });
+                    result.subjects1.forEach((subject) => {
+                      tempObtainedCGPA[subject.name] = 0;
+                    });
                     setObtainedCGPA(tempObtainedCGPA);
                     setSelectedStudent(null);
                   }}
@@ -253,9 +308,50 @@ function ResultInfo() {
                 </Row>
               </Form>
               <hr/>
-              
+              <table className="table">
+                <thead>
+                  <tr>
+                    <th>Subject</th>
+                    <th>Total GPA</th>
+                    <th>Obtained GPA</th>
+                    <th>Credits</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {result?.subjects1?.map((subject, index) => (
+                    <tr>
+                      <td>{subject?.name}</td>
+                      <td>{subject?.totalCGPA}</td>
+                      <td>
+                        <input
+                          type="text"
+                          className="w-110"
+                          value={obtainedCGPA[subject?.name]}
+                          onChange={(e) => {
+                            const tempObtainedCGPA = { ...obtainedCGPA };
+                            tempObtainedCGPA[subject.name] = e.target.value;
+                            console.log(tempObtainedCGPA);
+                            setObtainedCGPA(tempObtainedCGPA);
+                          }}
+                        />
+                      </td>
+                      <td>{subject?.credits}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              <Form layout="vertical" onFinish={onFinish} initialValues={null}>
+                <Row gutter={[10, 10]}>
+                  <Col span={4}>
+                    <label for="SGPA"><b>SGPA</b></label>
+                    <input type="text" id="SGPA" name="SGPA"></input>
+                  </Col>
+                </Row>
+              </Form>
+              <hr/> 
+
               <button
-                onClick={saveStudentResult}
+                onClick={saveStudentResult1}
                 className="primary px-5 text-white"
               >
                 SAVE
