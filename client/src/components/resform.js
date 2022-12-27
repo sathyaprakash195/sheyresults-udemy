@@ -38,7 +38,7 @@ function ResultForm() {
       <Form layout="vertical" onFinish={onFinish} initialValues={null}>
         <Row gutter={[10, 10]}>
           <Col span={16}>
-            <Form.Item label="Examination" name="examination" rules={[{ required: true, message: "Required" }]}>
+            <Form.Item label="Examination" name="examination">
               <input type="text" />
             </Form.Item>
           </Col>
@@ -49,12 +49,14 @@ function ResultForm() {
             </Form.Item>
           </Col>
           <Col span={8}>
-            <Form.Item label="Semester" name="semester" rules={[{ required: true, message: "Required" }]}>
+            <Form.Item label="Semester" name="semester">
               <input type="number" />
             </Form.Item>
           </Col>
         </Row>
         <hr />
+        <div>
+          <h2>Semester 1</h2>
         <Form.List name="subjects">
           {(fields, { add, remove }) => (
             <>
@@ -110,6 +112,65 @@ function ResultForm() {
             </>
           )}
         </Form.List>
+        </div>
+        <div>
+          <h2>Semester 2</h2>
+        <Form.List name="subjects1">
+          {(fields, { add, remove }) => (
+            <>
+              {fields.map(({ key, name, ...restField }) => (
+                <Space
+                  key={key}
+                  style={{ display: "flex", marginBottom: 8 }}
+                  align="baseline"
+                >
+                  <Form.Item
+                    {...restField}
+                    name={[name, "name"]}
+                    rules={[{ required: true, message: "Required" }]}
+                  >
+                    <input placeholder="Subject Name" />
+                  </Form.Item>
+                  <Form.Item
+                    {...restField}
+                    name={[name, "totalCGPA"]}
+                    rules={[{ required: true, message: "Required" }]}
+                  >
+                    <input placeholder="Total CGPA" />
+                  </Form.Item>
+                  <Form.Item
+                    {...restField}
+                    name={[name, "passCGPA"]}
+                    rules={[{ required: true, message: "Required" }]}
+                  >
+                    <input placeholder="Pass CGPA" />
+                  </Form.Item>
+                  <Form.Item
+                    {...restField}
+                    name={[name, "credits"]}
+                    rules={[{ required: true, message: "Required" }]}
+                  >
+                    <input placeholder="Credits" />
+                  </Form.Item>
+                  <i
+                    className="ri-delete-bin-line"
+                    onClick={() => remove(name)}
+                  ></i>
+                </Space>
+              ))}
+
+              <h1
+                onClick={() => add()}
+                className="text-medium underline mt-3 cursor-pointer"
+              >
+                Add Subject
+              </h1>
+              <hr/>
+              
+            </>
+          )}
+        </Form.List>
+        </div>
         <div className="d-flex justify-content-end mt-2">
           <button className="primary text-white px-5">Save</button>
         </div>
@@ -119,3 +180,4 @@ function ResultForm() {
 }
 
 export default ResultForm;
+

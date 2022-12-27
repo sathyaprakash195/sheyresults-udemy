@@ -17,8 +17,12 @@ const resultSchema = new mongoose.Schema(
       type: Array,
       required: true,
     },
-    class: {
-      type: String,
+    /*subjects1: {
+      type: Array,
+      required: true,
+    }, */
+    semester: {
+      type: Number,
       required: true,
     },
   },

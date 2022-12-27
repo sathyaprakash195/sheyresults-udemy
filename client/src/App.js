@@ -2,6 +2,10 @@ import { Button } from "antd";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./pages/employees/Login";
 import Register from "./pages/employees/Register";
+import MainHome from "./pages/MainHome";
+import Feedbackmain from "./pages/Feedbackmain";
+import Studentfeedback from "./pages/Studentfeedback";
+import Feedbackform from "./pages/Feedbackform";
 import Home from "./pages/Home";
 import "./styles/theme.css";
 import "./styles/layout.css";
@@ -29,8 +33,13 @@ function App() {
       <Toaster />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<MainHome />} />
+          <Route path="/Feedbackmain" element={<Feedbackmain />} />
+          <Route path="/Studentfeedback" element={<Studentfeedback />} />
+          <Route path="/Feedbackform" element={<Feedbackform />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/result/:resultId" element={<ResultCheck />} />
+
           <Route
             path="/login"
             element={

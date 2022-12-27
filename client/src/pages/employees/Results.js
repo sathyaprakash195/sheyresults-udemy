@@ -71,9 +71,9 @@ function Results() {
       key: "examination",
     },
     {
-      title: "Class",
-      dataIndex: "class",
-      key: "class",
+      title: "Semester",
+      dataIndex: "semester",
+      key: "semester",
     },
     {
       title: "Date",

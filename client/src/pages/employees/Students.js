@@ -66,9 +66,9 @@ function Students() {
 
   const columns = [
     {
-      title: "Class",
-      dataIndex: "class",
-      key: "class",
+      title: "Full Name",
+      dataIndex: "fullName",
+      key: "fullName",
     },
     {
       title: "Roll No",
@@ -76,14 +76,14 @@ function Students() {
       key: "rollNo",
     },
     {
-      title: "First Name",
-      dataIndex: "firstName",
-      key: "firstName",
+      title: "Semester",
+      dataIndex: "semester",
+      key: "semester",
     },
     {
-      title: "Last Name",
-      dataIndex: "lastName",
-      key: "lastName",
+      title: "Branch",
+      dataIndex: "branch",
+      key: "branch",
     },
     {
       title: "Email",

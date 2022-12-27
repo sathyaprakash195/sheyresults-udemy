@@ -1,15 +1,19 @@
 const mongoose = require("mongoose");
 const studentSchema = new mongoose.Schema({
-  firstName: {
-    type: String,
-    required: true,
-  },
-  lastName: {
+  fullName: {
     type: String,
     required: true,
   },
   rollNo: {
     type: Number,
+    required: true,
+  },
+  semester: {
+    type: Number,
+    required: true,
+  },
+  branch: {
+    type: String,
     required: true,
   },
   email: {
@@ -18,10 +22,6 @@ const studentSchema = new mongoose.Schema({
   },
   phoneNumber: {
     type: String,
-    required: true,
-  },
-  class: {
-    type: Number,
     required: true,
   },
   results: {

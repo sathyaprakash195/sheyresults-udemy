@@ -44,18 +44,23 @@ function StudentForm({ student, type }) {
       <Form layout="vertical" onFinish={onFinish} initialValues={student}>
         <Row gutter={[10, 10]}>
           <Col span={8}>
-            <Form.Item label="First Name" name="firstName">
-              <input type="text" />
-            </Form.Item>
-          </Col>
-          <Col span={8}>
-            <Form.Item label="Last Name" name="lastName">
+            <Form.Item label="Full Name" name="fullName">
               <input type="text" />
             </Form.Item>
           </Col>
           <Col span={8}>
             <Form.Item label="Roll No" name="rollNo">
               <input type="number" disabled={type==='edit' ? true : false}/>
+            </Form.Item>
+          </Col>
+          <Col span={8}>
+            <Form.Item label="Semester" name="semester">
+              <input type="number" />
+            </Form.Item>
+          </Col>
+          <Col span={8}>
+            <Form.Item label="Branch" name="branch">
+              <input type="text" />
             </Form.Item>
           </Col>
           <Col span={8}>
@@ -66,11 +71,6 @@ function StudentForm({ student, type }) {
           <Col span={8}>
             <Form.Item label="Phone Number" name="phoneNumber">
               <input type="text" />
-            </Form.Item>
-          </Col>
-          <Col span={8}>
-            <Form.Item label="Class" name="class">
-              <input type="number" />
             </Form.Item>
           </Col>
         </Row>

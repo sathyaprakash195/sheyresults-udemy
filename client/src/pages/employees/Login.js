@@ -27,9 +27,9 @@ function Login() {
     }
   };
   return (
-    <div className="primary d-flex align-items-center justify-content-center h-screen">
-      <Form layout="vertical w-400 white p-4" onFinish={onFinish}>
-        <h1 className="text-medium"><b>SHEY RESULTS</b></h1>
+    <div className="white d-flex align-items-center justify-content-center h-screen">
+      <Form layout="vertical w-400 primary p-4" onFinish={onFinish}>
+        <h1 className="text-medium"><b>RESULTS</b></h1>
         <hr />
         <h1 className="text-medium">Employee - Login</h1>
         <hr />
@@ -40,9 +40,9 @@ function Login() {
           <Input type="password" />
         </Form.Item>
 
-        <button className="primary text-white px-5 my-2 w-100">Login</button>
-        <Link to="/register" className="text-mini text-black">
-          Not yet Registered , Click Here To Register
+        <button className="secondary text-black px-5 my-2 w-100">Login</button>
+        <Link to="/register" className="text-mini underline text-white">
+          Not yet Registered? Click Here To Register
         </Link>
       </Form>
     </div>

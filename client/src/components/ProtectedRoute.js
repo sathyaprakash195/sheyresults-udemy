@@ -11,7 +11,7 @@ function ProtectedRoute(props) {
   const navigate = useNavigate();
   const [readyToRednder, setReadyToRednder] = React.useState(false);
   const dispatch = useDispatch();
-  const geEmployeeData = async () => {
+  const getEmployeeData = async () => {
     try {
       dispatch(ShowLoading());
       const token = localStorage.getItem("token");
@@ -37,7 +37,7 @@ function ProtectedRoute(props) {
   };
 
   useEffect(() => {
-    geEmployeeData();
+    getEmployeeData();
   }, []);
 
   return readyToRednder && <DefaultLayout>{props.children}</DefaultLayout>;

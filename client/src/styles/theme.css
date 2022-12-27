@@ -1,8 +1,8 @@
 
 
 :root {
-  --primary: #045842;
-  --secondary: #ec5909;
+  --primary: #f40c0c67;
+  --secondary: #9352edf7;
 }
 
 *{
@@ -18,6 +18,9 @@
 }
 .white {
   background-color: #fff;
+}
+.form {
+  background-color: rgb(255, 221, 221);
 }
 
 /* text colors */
@@ -103,12 +106,12 @@ input:focus{
     outline: none !important;
 }
 button{
-    border-radius: 0;
+    border-radius:0;
     height: 40px !important;
     border: none !important;
 }
 a{
-    color: #000 !important;
+    color: rgb(87, 174, 206) !important;
 }
 h1{
   margin-bottom: 0 !important;
@@ -125,4 +128,53 @@ i{
 
 .ant-form-item{
     margin-bottom: 5px !important;
+}
+
+.dropdown {
+  position: absolute;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 120px;
+  font-size: med;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 5px 5px;
+  font-size: medium;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: var(--secondary);
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+.margin{
+  margin-left: 10px;
 }
